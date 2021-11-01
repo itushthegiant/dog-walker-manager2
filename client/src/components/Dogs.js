@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import DogCard from './DogCard'
 import { useHistory } from 'react-router-dom'
+import { Col, Row } from 'react-bootstrap'
 
 
 
@@ -18,18 +19,20 @@ function Dogs() {
     }, [])
 
 
-    
+
 
     const showDogs = () => {
         return dogs.map(dog => {
-            return <DogCard  key={dog.id} dog={dog} />
+            return <Col key={dog.id}><DogCard dog={dog} /></Col>
         })
     }
 
 
     return (
         <div>
-            {showDogs()}
+            <Row>
+                {showDogs()}
+            </Row>
         </div>
     )
 }

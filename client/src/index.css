@@ -22,3 +22,6 @@ code {
   text-align: center;
 }
 
+.dog-card {
+  background-image: url(./assets/vintage-concrete.png)
+}
