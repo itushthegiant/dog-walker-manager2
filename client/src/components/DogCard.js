@@ -8,14 +8,12 @@ function DogCard(props) {
 
 
     const deleteDogs = () => {
-        fetch(`/delete-dog/${props.dog.id}`, {
+        fetch(`/dogs/${props.dog.id}`, {
             method: 'DELETE',
         })
-            .then((res) => {
-                console.log("deleted")
-                history.push('/dogs')
-            })
+            .then(() => props.filterDogs(props.dog.id))
     }
+    
 
     return (
         <div>
@@ -33,12 +31,11 @@ function DogCard(props) {
                             <ListGroupItem className="dog-card">Breed: {props.dog.breed}</ListGroupItem>
                             <ListGroupItem className="dog-card">Age: {props.dog.age} yo</ListGroupItem>
                             <ListGroupItem className="dog-card">Owner Name: {props.dog.owner_name}</ListGroupItem>
-                            <ListGroupItem className="dog-card">Walk date: {props.dog.walk_date}</ListGroupItem>
+                            <ListGroupItem className="dog-card">Walk date: {props.dog.walk}</ListGroupItem>
                             <ListGroupItem className="dog-card">Walk time: {props.dog.walk_time}</ListGroupItem>
                         </ListGroup>
                         <Card.Body>
-                            <Card.Link href="#">Edit</Card.Link>
-                            <Button onClick={deleteDogs}>Delete</Button>
+                            <Button variant="outline-danger" onClick={deleteDogs}>Delete</Button>
                         </Card.Body>
                     </Card>
             </Container>

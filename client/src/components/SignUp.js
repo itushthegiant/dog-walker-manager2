@@ -11,7 +11,7 @@ function SignUp() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        fetch('/dogs', {
+        fetch('/signup', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",

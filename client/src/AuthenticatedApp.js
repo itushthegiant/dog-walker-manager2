@@ -1,8 +1,8 @@
 import React from 'react'
 import AddADog from './components/AddADog'
 import Navibar from './components/Navibar'
-import Dogs from './components/Dogs'
-import { useHistory, Switch, Route } from 'react-router-dom'
+import DogsContainer from './components/DogsContainer'
+import { useHistory, Switch, Route, NavLink } from 'react-router-dom'
 
 function AuthenticatedApp({ setCurrentUser, currentUser }) {
 
@@ -15,16 +15,17 @@ function AuthenticatedApp({ setCurrentUser, currentUser }) {
         .then(() => {
             console.log("logged out");
             history.push("/");
+            
         });
     }
-    
+
 
     return (
         <div>
             <Navibar handleLogOut={handleLogOut} currentUser={currentUser} />
             <Switch>
                 <Route exact path="/dogs">
-                    <Dogs />
+                    <DogsContainer />
                 </Route>
                 <Route exact path="/add-dog">
                     <AddADog />

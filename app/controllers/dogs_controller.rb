@@ -29,11 +29,6 @@ class DogsController < ApplicationController
 
     # destroy dog dogs/:id
     def destroy
-        find_dog.current_user.destroy
-        head :no_content
-    end
-
-    def delete_user_dog
         if current_user
             current_user.dogs.find_by(id: params[:id]).destroy
             head :no_content

@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   post "/login", to: "sessions#create"
 
-  delete "/delete-dog/:id", to: "dogs#delete_user_dog"
 
   # get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end
