@@ -13,7 +13,7 @@ function AuthenticatedApp({ setCurrentUser, currentUser }) {
             method: "DELETE"
         })
         .then(() => {
-            console.log("logged out");
+            setCurrentUser(null)
             history.push("/");
             
         });
