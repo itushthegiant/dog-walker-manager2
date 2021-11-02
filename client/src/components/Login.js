@@ -30,9 +30,9 @@ function Login({ setCurrentUser }) {
 
 
     return (
-        <div className="login-card text-center">
+        <div>
             <Container>
-                <Card className="mt-3" style={{ width: '18rem' }}>
+                <Card className="col-md-6 col-md-offset-3 login-card" style={{ width: '18rem' }}>
                     <Card.Body>
                         <Form onSubmit={handleSubmit}>
                             <Form.Group className="mb-3" controlId="formBasicUsername">
