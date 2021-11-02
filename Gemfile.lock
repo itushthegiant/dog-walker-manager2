@@ -174,7 +174,7 @@ GEM
     zeitwerk (2.5.1)
 
 PLATFORMS
-  x86_64-darwin-20
+  bundle lock --add-platform x86_64-linux
 
 DEPENDENCIES
   active_model_serializers (~> 0.10.12)
