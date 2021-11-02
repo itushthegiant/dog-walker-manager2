@@ -14,15 +14,17 @@ function Navibar({ handleLogOut, currentUser }) {
                     <Nav className="me-auto nav-buttons">
                         {currentUser ?
                             <>
-                                <Nav.Link href="/add-dog">Add a Dog</Nav.Link>
-                                <Nav.Link href="/dogs">Dogs</Nav.Link>
+                                {/* <Nav.Link href="/add-dog">Add a Dog</Nav.Link> */}
+                                {/* <Nav.Link href="/dogs">Dogs</Nav.Link> */}
+                                <Button href="/add-dog" className="add-button" size="sm" variant="info" >Add a Dog</Button>
+                                {/* <Button href="/dog"  size="sm" variant="info" >Dogs</Button> */}
                                 <Button className="logout-button" variant="outline-danger" onClick={handleLogOut} size="sm">Logout</Button>
                                 <span style={{ color: 'white' }} >Hello {currentUser.username}!</span>
                             </>
                             :
                             <>
-                                <Button variant="info" href="/">Login</Button>
-                                <span style={{ color: 'white' }}>Hello Guest!</span>
+                                <Button className="login-button" variant="info" href="/">Login</Button>
+                                <span className="guest-greeting" style={{ color: 'white' }}>Hello Guest!</span>
                             </>
                         }
                     </Nav>

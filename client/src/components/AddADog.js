@@ -54,7 +54,7 @@ function AddADog() {
 
                             <Form.Group as={Col} controlId="formGridPassword">
                                 <Form.Label>Breed</Form.Label>
-                                <Form.Control value={breed} type="text" placeholder="Enter Breed" onChange={(e) => setBreed(e.target.value)} />
+                                <Form.Control value={breed} type="text" placeholder="Enter breed" onChange={(e) => setBreed(e.target.value)} />
                             </Form.Group>
                         </Row>
 
@@ -72,12 +72,12 @@ function AddADog() {
 
                         <Row className="mb-3">
                             <Form.Group as={Col} controlId="formGridEmail">
-                                <Form.Label>Walk date</Form.Label>
+                                <Form.Label>Walk Date</Form.Label>
                                 <Form.Control value={walkDate} type="date" placeholder="Select date" onChange={(e) => setWalkDate(e.target.value)} />
                             </Form.Group>
 
                             <Form.Group as={Col} controlId="formGridPassword">
-                                <Form.Label>Walk time</Form.Label>
+                                <Form.Label>Walk Time</Form.Label>
                                 <Form.Control value={walkTime} type="time" placeholder="Select time" onChange={(e) => setWalkTime(e.target.value)} />
                             </Form.Group>
                         </Row>
