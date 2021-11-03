@@ -19,20 +19,26 @@ code {
 }
 
 .login-card {
+  background-image: url(./assets/floor-tile.png);
   text-align: center;
   float: none;
   margin: 0 auto;
+  margin-top: 40px;
 }
 
 .signup-form {
+  background-image: url(./assets/floor-tile.png);
   text-align: center;
   float: none;
   margin: 0 auto;
+  margin-top: 40px;
 }
 
 .dog-card {
   background-image: url(./assets/vintage-concrete.png);
   margin-top: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 20px;
 }
 
 
@@ -74,4 +80,15 @@ code {
     margin-bottom: 35px;
     margin-top: 4px;
     margin-right: 12px;
+}
+
+.add-dog-form {
+  background-image: url(./assets/floor-tile.png);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 7px;
+}
+
+.nav-bar {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 20px;
 }

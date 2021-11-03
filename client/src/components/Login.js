@@ -46,11 +46,11 @@ function Login({ setCurrentUser }) {
                                 <Form.Control value={password} type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
                             </Form.Group>
                             <Button variant="primary" type="submit">
-                                Submit
+                                Login
                             </Button>
                         </Form>
                     </Card.Body>
-                    <Button href="/sign-up">
+                    <Button href="/sign-up" size="sm" variant="outline-success">
                         SignUp
                     </Button>
                 </Card>

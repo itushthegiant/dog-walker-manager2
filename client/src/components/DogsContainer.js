@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import DogCard from './DogCard'
-import { useHistory } from 'react-router-dom'
 import { Col, Row, Container } from 'react-bootstrap'
 
 

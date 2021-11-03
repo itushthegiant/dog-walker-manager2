@@ -2,7 +2,7 @@ import React from 'react'
 import AddADog from './components/AddADog'
 import Navibar from './components/Navibar'
 import DogsContainer from './components/DogsContainer'
-import { useHistory, Switch, Route, NavLink } from 'react-router-dom'
+import { useHistory, Switch, Route } from 'react-router-dom'
 
 function AuthenticatedApp({ setCurrentUser, currentUser }) {
 

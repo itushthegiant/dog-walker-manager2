@@ -7,7 +7,7 @@ function Navibar({ handleLogOut, currentUser }) {
     return (
         <div>
             <Container>
-                <Navbar bg="dark" variant="dark">
+                <Navbar className="nav-bar" bg="dark" variant="dark">
                     <Navbar.Brand href="/" className="nav-brand">
                         <FontAwesomeIcon icon={faDog} className="dog-icon" />Dog Walker Manager
                     </Navbar.Brand>
@@ -15,7 +15,7 @@ function Navibar({ handleLogOut, currentUser }) {
                         {currentUser ?
                             <>
                                 <Button href="/add-dog" className="add-button" size="sm" variant="info" >Add a Dog</Button>
-                                <Button className="dogs-button"href="/dog"  size="sm" variant="info" >Dogs</Button>
+                                <Button href="/dogs" className="dogs-button" size="sm" variant="info" >Dogs</Button>
                                 <Button className="logout-button" variant="outline-danger" onClick={handleLogOut} size="sm">Logout</Button>
                                 <span className="user-greeting" style={{ color: 'white' }} >Hello {currentUser.username}!</span>
                             </>

@@ -44,7 +44,7 @@ function AddADog() {
     return (
         <div>
             <Container>
-                <Card className="mt-3"style={{ width: '80rem' }}>
+                <Card className="mt-4 add-dog-form"style={{ width: '80rem' }}>
                     <Form className="text-center" onSubmit={handleSubmit}>
                         <Row className="mb-3">
                             <Form.Group as={Col} controlId="formGridEmail">
