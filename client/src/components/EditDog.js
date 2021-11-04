@@ -3,7 +3,7 @@ import { Form, Row, Button, Col, Container, Card } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
 
 
-function AddADog() {
+function EditDog() {
     const [name, setName] = useState('')
     const [age, setAge] = useState('')
     const [ownerName, setOwnerName] = useState('')
@@ -101,4 +101,4 @@ function AddADog() {
     )
 }
 
-export default AddADog
+export default EditDog

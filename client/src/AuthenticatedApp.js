@@ -1,4 +1,5 @@
 import React from 'react'
+import EditDog from './components/EditDog'
 import AddADog from './components/AddADog'
 import Navibar from './components/Navibar'
 import DogsContainer from './components/DogsContainer'
@@ -25,10 +26,13 @@ function AuthenticatedApp({ setCurrentUser, currentUser }) {
             <Navibar handleLogOut={handleLogOut} currentUser={currentUser} />
             <Switch>
                 <Route exact path="/dogs">
-                    <DogsContainer />
+                    <DogsContainer currentUser={currentUser} />
                 </Route>
                 <Route exact path="/add-dog">
                     <AddADog />
+                </Route>
+                <Route exact path="/edit-dog">
+                    <EditDog />
                 </Route>
             </Switch>
         </div>

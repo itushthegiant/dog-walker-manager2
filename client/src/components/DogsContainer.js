@@ -24,7 +24,7 @@ function Dogs() {
 
     const showDogs = () => {
         return dogs.map(dog => {
-            return <Col key={dog.id}><DogCard filterDogs={filterDogs} setDogs={setDogs} dog={dog} /></Col>
+            return <Col key={dog.id}><DogCard key={dog.id} filterDogs={filterDogs} setDogs={setDogs} dog={dog} /></Col>
         })
     }
 
@@ -32,9 +32,22 @@ function Dogs() {
     return (
         <div>
             <Container>
-                <Row>
-                    {showDogs()}
-                </Row>
+
+
+                {dogs.length === 0 ?
+                    <div className="headers">
+                        <h1 className="text-center"><i className="far">No scheduled walks</i></h1>
+                    </div>
+                    :
+                    <div >
+                        <div className="headers">
+                            <h1 className="text-center"><i className="far">Your Walks</i></h1>
+                        </div>
+                        <Row>
+                            {showDogs()}
+                        </Row>
+                    </div>
+                }
             </Container>
         </div>
     )

@@ -8,7 +8,7 @@ function Navibar({ handleLogOut, currentUser }) {
         <div>
             <Container>
                 <Navbar className="nav-bar" bg="dark" variant="dark">
-                    <Navbar.Brand href="/" className="nav-brand">
+                    <Navbar.Brand href={currentUser ? "/dogs" : "/"} className="nav-brand">
                         <FontAwesomeIcon icon={faDog} className="dog-icon" />Dog Walker Manager
                     </Navbar.Brand>
                     <Nav className="me-auto nav-buttons">
