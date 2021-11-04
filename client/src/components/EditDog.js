@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Form, Row, Button, Col, Container, Card } from 'react-bootstrap'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 
 
 function EditDog() {
@@ -11,13 +11,14 @@ function EditDog() {
     const [imgUrl, setImgUrl] = useState('')
     const [walkTime, setWalkTime] = useState('')
     const [walkDate, setWalkDate] = useState('')
+    const { id } = useParams()
     const history = useHistory()
 
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        fetch('/dogs', {
-            method: 'POST',
+        fetch(`/dogs/${id}`, {
+            method: 'PATCH',
             headers: {
                 "Content-Type": "application/json",
             },
@@ -45,7 +46,7 @@ function EditDog() {
         <div>
             <Container>
                 <div className="headers">
-                    <h1 className="text-center"><i className="far">Add a Walk</i></h1>
+                    <h1 className="text-center"><i className="far">Edit walk</i></h1>
                 </div>
                 <Card className="mt-4 add-dog-form" style={{ width: '80rem' }}>
                     <Form className="text-center" onSubmit={handleSubmit}>

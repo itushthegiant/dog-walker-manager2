@@ -9,6 +9,8 @@ function Dogs() {
 
     const [dogs, setDogs] = useState([])
 
+    
+
 
     useEffect(() => {
         fetch('/dogs')
@@ -22,6 +24,7 @@ function Dogs() {
     }
 
 
+
     const showDogs = () => {
         return dogs.map(dog => {
             return <Col key={dog.id}><DogCard key={dog.id} filterDogs={filterDogs} setDogs={setDogs} dog={dog} /></Col>
@@ -32,8 +35,6 @@ function Dogs() {
     return (
         <div>
             <Container>
-
-
                 {dogs.length === 0 ?
                     <div className="headers">
                         <h1 className="text-center"><i className="far">No scheduled walks</i></h1>

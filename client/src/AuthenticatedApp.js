@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import EditDog from './components/EditDog'
 import AddADog from './components/AddADog'
 import Navibar from './components/Navibar'
@@ -6,6 +6,8 @@ import DogsContainer from './components/DogsContainer'
 import { useHistory, Switch, Route } from 'react-router-dom'
 
 function AuthenticatedApp({ setCurrentUser, currentUser }) {
+
+
 
     const history = useHistory()
 
@@ -20,6 +22,8 @@ function AuthenticatedApp({ setCurrentUser, currentUser }) {
         });
     }
 
+    
+
 
     return (
         <div>
@@ -29,9 +33,9 @@ function AuthenticatedApp({ setCurrentUser, currentUser }) {
                     <DogsContainer currentUser={currentUser} />
                 </Route>
                 <Route exact path="/add-dog">
-                    <AddADog />
+                    <AddADog  />
                 </Route>
-                <Route exact path="/edit-dog">
+                <Route exact path="/dogs/:id/edit">
                     <EditDog />
                 </Route>
             </Switch>
