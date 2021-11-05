@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Card, Button, Form, Container } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
 
-function SignUp() {
+function SignUp({ setCurrentUser }) {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [passwordConfirmation, setPasswordConfirmation] = useState('')
@@ -23,7 +23,11 @@ function SignUp() {
             }),
         })
             .then((r) => {
-                console.log(r)
+                const user = {
+                    username,
+                    password,
+                }
+                setCurrentUser(user)
                 history.push('/dogs')
             })
     }
@@ -48,7 +52,7 @@ function SignUp() {
                                 <Form.Control className="shadow rounded-pill" value={passwordConfirmation} type="password" placeholder="Password" onChange={(e) => setPasswordConfirmation(e.target.value)} required />
                             </Form.Group>
                             <Button className="shadow rounded-pill" variant="primary" type="submit">
-                                Submit
+                                Signup
                             </Button>
                         </Form>
                     </Card.Body>

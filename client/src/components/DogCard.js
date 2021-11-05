@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Card, Button, Container } from 'react-bootstrap'
 
 function DogCard(props) {
@@ -27,8 +27,8 @@ function DogCard(props) {
                         <Card.Text>Walk time: {props.dog.walk_time}</Card.Text>
                     </Card.Body>
                     <Card.Body >
-                        <Button variant="danger" onClick={deleteDogs}>Delete</Button>
-                        <Button className="" href={`/dogs/${props.dog.id}/edit`} varient="info">Edit</Button>
+                        <Button className="shadow rounded-pill" variant="danger" onClick={deleteDogs}>Delete</Button>
+                        <Button className="shadow rounded-pill ms-2" href={`/dogs/${props.dog.id}/edit`} varient="info">Edit</Button>
                     </Card.Body>
                 </Card>
             </Container>
