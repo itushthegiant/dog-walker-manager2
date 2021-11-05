@@ -7,7 +7,7 @@ function Navibar({ handleLogOut, currentUser }) {
     return (
         <div>
             <Container>
-                <Navbar className="nav-bar" bg="dark" variant="dark">
+                <Navbar className="mt-2 nav-bar" bg="dark" variant="dark">
                     <Navbar.Brand href={currentUser ? "/dogs" : "/"} className="nav-brand">
                         <FontAwesomeIcon icon={faDog} className="dog-icon" />Dog Walker Manager
                     </Navbar.Brand>

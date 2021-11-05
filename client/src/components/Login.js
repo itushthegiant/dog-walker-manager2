@@ -37,20 +37,21 @@ function Login({ setCurrentUser }) {
                         <Form onSubmit={handleSubmit}>
                             <Form.Group className="mb-3" controlId="formBasicUsername">
                                 <Form.Label>Username</Form.Label>
-                                <Form.Control value={username} type="text" placeholder="Enter Username" onChange={(e) => setUsername(e.target.value)} required />
+                                <Form.Control className="shadow rounded-pill" value={username} type="text" placeholder="Enter Username" onChange={(e) => setUsername(e.target.value)} required />
 
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicPassword">
                                 <Form.Label>Password</Form.Label>
-                                <Form.Control value={password} type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
+                                <Form.Control className="shadow rounded-pill" value={password} type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
                             </Form.Group>
-                            <Button variant="primary" type="submit">
+                            <Button className="shadow rounded-pill" variant="primary" type="submit">
                                 Login
                             </Button>
                         </Form>
                     </Card.Body>
-                    <Button href="/sign-up" size="sm" variant="outline-success">
+                    <p>- Or -</p>
+                    <Button className="shadow rounded-pill mb-2 m-lg-2" href="/sign-up" size="sm" variant="success">
                         SignUp
                     </Button>
                 </Card>

@@ -37,25 +37,23 @@ function SignUp() {
                         <Form onSubmit={handleSubmit}>
                             <Form.Group className="mb-3" controlId="formBasicUsername">
                                 <Form.Label>Username</Form.Label>
-                                <Form.Control value={username} type="text" placeholder="Enter Username" onChange={(e) => setUsername(e.target.value)} required />
-                                <Form.Text className="text-muted">
-                                </Form.Text>
+                                <Form.Control className="shadow rounded-pill" value={username} type="text" placeholder="Enter Username" onChange={(e) => setUsername(e.target.value)} required />
                             </Form.Group>
-
                             <Form.Group className="mb-3" controlId="formBasicPassword">
                                 <Form.Label>Password</Form.Label>
-                                <Form.Control value={password} type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
+                                <Form.Control className="shadow rounded-pill" value={password} type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicConfirmPassword">
                                 <Form.Label>Confirm Password</Form.Label>
-                                <Form.Control value={passwordConfirmation} type="password" placeholder="Password" onChange={(e) => setPasswordConfirmation(e.target.value)} required />
+                                <Form.Control className="shadow rounded-pill" value={passwordConfirmation} type="password" placeholder="Password" onChange={(e) => setPasswordConfirmation(e.target.value)} required />
                             </Form.Group>
-                            <Button variant="primary" type="submit">
+                            <Button className="shadow rounded-pill" variant="primary" type="submit">
                                 Submit
                             </Button>
                         </Form>
                     </Card.Body>
-                    <Button href="/">
+                    <p> - Or -</p>
+                    <Button className="shadow rounded-pill mb-2 m-lg-2" variant="success" size="sm" href="/">
                         Login
                     </Button>
                 </Card>
