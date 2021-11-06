@@ -28,7 +28,7 @@ function AddADog() {
                 owner_name: ownerName,
                 img_url: imgUrl,
                 walk_time: walkTime,
-                walk: walkDate,
+                walk_date: walkDate,
             }),
         })
             .then((r) => {

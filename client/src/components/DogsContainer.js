@@ -5,7 +5,7 @@ import { Col, Row, Container } from 'react-bootstrap'
 
 
 
-function Dogs() {
+function DogsContainer() {
 
     const [dogs, setDogs] = useState([])
 
@@ -54,4 +54,4 @@ function Dogs() {
     )
 }
 
-export default Dogs
+export default DogsContainer

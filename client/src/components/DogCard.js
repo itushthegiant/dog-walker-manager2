@@ -23,7 +23,7 @@ function DogCard(props) {
                         <Card.Text>Breed: {props.dog.breed}</Card.Text>
                         <Card.Text>Age: {props.dog.age} yo</Card.Text>
                         <Card.Text>Owner Name: {props.dog.owner_name}</Card.Text>
-                        <Card.Text>Walk date: {props.dog.walk}</Card.Text>
+                        <Card.Text>Walk date: {props.dog.walk_date}</Card.Text>
                         <Card.Text>Walk time: {props.dog.walk_time}</Card.Text>
                     </Card.Body>
                     <Card.Body >

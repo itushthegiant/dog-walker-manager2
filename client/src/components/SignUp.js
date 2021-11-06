@@ -7,6 +7,11 @@ function SignUp({ setCurrentUser }) {
     const [password, setPassword] = useState('')
     const [passwordConfirmation, setPasswordConfirmation] = useState('')
     const history = useHistory()
+    const user = {
+        username,
+        password,
+    }
+    
 
 
     const handleSubmit = (e) => {
@@ -19,14 +24,10 @@ function SignUp({ setCurrentUser }) {
             body: JSON.stringify({
                 username,
                 password,
-                passwordConfirmation: passwordConfirmation,
+                password_confirmation: passwordConfirmation,
             }),
         })
             .then((r) => {
-                const user = {
-                    username,
-                    password,
-                }
                 setCurrentUser(user)
                 history.push('/dogs')
             })
