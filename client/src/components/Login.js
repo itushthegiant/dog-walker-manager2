@@ -39,11 +39,7 @@ function Login({ setCurrentUser }) {
                 <Card className="col-md-6 col-md-offset-3 login-card" style={{ width: '18rem' }}>
                     <Card.Body>
                         <Form onSubmit={handleSubmit}>
-                            {error ?
-                            <Alert className="p-1 fs-6 fw-lighter" variant="danger"><FontAwesomeIcon icon={faExclamationCircle} /> {error}</Alert>
-                            :
-                            <Alert hidden variant="danger">{error}</Alert>
-                            }
+                            {error ? <Alert className="p-1 fs-6 fw-lighter" variant="danger"><FontAwesomeIcon icon={faExclamationCircle} /> {error}</Alert> : null}
                             <Form.Group className="mb-3" controlId="formBasicUsername">
                                 <Form.Label>Username</Form.Label>
                                 <Form.Control className="shadow rounded-pill" value={username} type="text" placeholder="Enter Username" onChange={(e) => setUsername(e.target.value)} required />
