@@ -39,7 +39,7 @@ function SignUp({ setCurrentUser }) {
     }
 
     const getError = () => {
-        return errors.map(err => err)
+        return errors.map(err => <Alert className="fs-6 fw-lighter p-1" variant="danger"><FontAwesomeIcon icon={faExclamationCircle} /> {err}</Alert>)
     }
 
 
@@ -49,7 +49,7 @@ function SignUp({ setCurrentUser }) {
                 <Card className="col-md-6 col-md-offset-3 signup-form" style={{ width: '18rem' }}>
                     <Card.Body>
                         <Form onSubmit={handleSubmit}>
-                            {errors.length > 0 ? <Alert className="fs-6 fw-lighter p-1" variant="danger"><FontAwesomeIcon icon={faExclamationCircle} /> {getError()}</Alert> : null}
+                            {errors.length > 0 ? getError() : null}
                             <Form.Group className="mb-3" controlId="formBasicUsername">
                                 <Form.Label>Username</Form.Label>
                                 <Form.Control className="shadow rounded-pill" value={username} type="text" placeholder="Enter Username" onChange={(e) => setUsername(e.target.value)} required />
