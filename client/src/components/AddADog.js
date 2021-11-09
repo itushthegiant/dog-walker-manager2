@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
-import { Form, Row, Button, Col, Container, Card } from 'react-bootstrap'
+import { Form, Row, Button, Col, Container, Card, Alert } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons'
 
 
 function AddADog() {
@@ -11,6 +13,7 @@ function AddADog() {
     const [imgUrl, setImgUrl] = useState('')
     const [walkTime, setWalkTime] = useState('')
     const [walkDate, setWalkDate] = useState('')
+    const [errors, setErrors] = useState('')
     const history = useHistory()
 
 
@@ -30,13 +33,18 @@ function AddADog() {
                 walk_time: walkTime,
                 walk_date: walkDate,
             }),
-        })
-            .then((r) => {
+        }).then((r) => {
+            if (r.ok) {
                 history.push('/dogs')
-            })
+            } else {
+                r.json().then((err) => setErrors(err.errors))
+            }
+        })
     }
 
-
+    const renderErrors = () => {
+        return errors.map((err) => {return <Alert className="add-dog-alert w-50 text-center fs-6 fw-lighter p-1" variant="danger"><FontAwesomeIcon icon={faExclamationCircle} /> {err}</Alert>})
+    }
 
 
 
@@ -48,6 +56,7 @@ function AddADog() {
                     <h1 className="text-center"><i className="far">Add a Walk</i></h1>
                 </div>
                 <Card className="mt-4 add-dog-form" style={{ width: '80rem' }}>
+                    {errors.length > 0 ? renderErrors() : null}
                     <Form className="text-center" onSubmit={handleSubmit}>
                         <Row className="mb-3">
                             <Form.Group as={Col} controlId="formGridEmail">

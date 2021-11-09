@@ -25,6 +25,8 @@ function DogCard(props) {
                         <Card.Text>Owner Name: {props.dog.owner_name}</Card.Text>
                         <Card.Text>Walk date: {props.dog.walk_date}</Card.Text>
                         <Card.Text>Walk time: {props.dog.walk_time}</Card.Text>
+                        <Card.Text>Phone number: {props.dog.phone_number}</Card.Text>
+                        <Card.Text>Comments: {props.dog.comments}</Card.Text>
                     </Card.Body>
                     <Card.Body >
                         <Button className="shadow rounded-pill" variant="danger" onClick={deleteDogs}>Delete</Button>

@@ -32,6 +32,7 @@ function Login({ setCurrentUser }) {
     }
 
 
+
     return (
         <div>
             <Container>
@@ -39,16 +40,14 @@ function Login({ setCurrentUser }) {
                     <Card.Body>
                         <Form onSubmit={handleSubmit}>
                             {error ?
-                            <Alert className="fs-6 fw-lighter" variant="danger"><FontAwesomeIcon icon={faExclamationCircle} /> {error}</Alert>
+                            <Alert className="p-1 fs-6 fw-lighter" variant="danger"><FontAwesomeIcon icon={faExclamationCircle} /> {error}</Alert>
                             :
                             <Alert hidden variant="danger">{error}</Alert>
                             }
                             <Form.Group className="mb-3" controlId="formBasicUsername">
                                 <Form.Label>Username</Form.Label>
                                 <Form.Control className="shadow rounded-pill" value={username} type="text" placeholder="Enter Username" onChange={(e) => setUsername(e.target.value)} required />
-
                             </Form.Group>
-
                             <Form.Group className="mb-3" controlId="formBasicPassword">
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control className="shadow rounded-pill" value={password} type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />

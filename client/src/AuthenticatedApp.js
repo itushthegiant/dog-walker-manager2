@@ -18,7 +18,6 @@ function AuthenticatedApp({ setCurrentUser, currentUser }) {
         .then(() => {
             setCurrentUser(null)
             history.push("/");
-            
         });
     }
 

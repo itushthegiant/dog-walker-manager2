@@ -102,6 +102,10 @@ code {
   border-radius: 7px;
 }
 
+.add-dog-alert {
+  margin-left: 300px;
+}
+
 .form-input {
   margin-left: 76px;
 }

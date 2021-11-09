@@ -5,7 +5,7 @@ class DogsController < ApplicationController
     # show all dogs
     def index
         render json: current_user.dogs, status: :ok
-    end
+    end 
 
     # create a dog
     def create
@@ -42,7 +42,7 @@ class DogsController < ApplicationController
     end
 
     def dog_params
-        params.permit(:name, :age, :owner_name, :breed, :img_url, :walk_time, :walk_date)
+        params.require(:dog).permit(:name, :age, :owner_name, :breed, :img_url, :walk_time, :walk_date)
     end
 
    

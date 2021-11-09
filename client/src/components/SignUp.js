@@ -1,17 +1,16 @@
 import React, { useState } from 'react'
-import { Card, Button, Form, Container } from 'react-bootstrap'
+import { Card, Button, Form, Container, Alert } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons'
 
 function SignUp({ setCurrentUser }) {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [passwordConfirmation, setPasswordConfirmation] = useState('')
+    const [errors, setErrors] = useState([])
     const history = useHistory()
-    const user = {
-        username,
-        password,
-    }
-    
+
 
 
     const handleSubmit = (e) => {
@@ -28,9 +27,19 @@ function SignUp({ setCurrentUser }) {
             }),
         })
             .then((r) => {
-                setCurrentUser(user)
-                history.push('/dogs')
+                if (r.ok) {
+                    r.json().then((user) => {
+                        setCurrentUser(user)
+                        history.push('/dogs')
+                    })
+                } if (r.status === 422) {
+                    r.json().then((err) => setErrors(err.errors));
+                } 
             })
+    }
+
+    const getError = () => {
+        return errors.map(err => err)
     }
 
 
@@ -40,6 +49,11 @@ function SignUp({ setCurrentUser }) {
                 <Card className="col-md-6 col-md-offset-3 signup-form" style={{ width: '18rem' }}>
                     <Card.Body>
                         <Form onSubmit={handleSubmit}>
+                            {errors.length > 0 ?
+                                <Alert className="fs-6 fw-lighter p-1" variant="danger"><FontAwesomeIcon icon={faExclamationCircle} /> {getError()}</Alert>
+                                :
+                                <Alert hidden variant="danger">{getError()}</Alert>
+                            }
                             <Form.Group className="mb-3" controlId="formBasicUsername">
                                 <Form.Label>Username</Form.Label>
                                 <Form.Control className="shadow rounded-pill" value={username} type="text" placeholder="Enter Username" onChange={(e) => setUsername(e.target.value)} required />
