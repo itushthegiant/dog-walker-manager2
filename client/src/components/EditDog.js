@@ -12,6 +12,8 @@ function EditDog() {
     const [imgUrl, setImgUrl] = useState('')
     const [walkTime, setWalkTime] = useState('')
     const [walkDate, setWalkDate] = useState('')
+    const [phoneNumber, setPhoneNumber] = useState('')
+    const [comments, setComments] = useState('')
     const { id } = useParams()
     const history = useHistory()
 
@@ -27,18 +29,16 @@ function EditDog() {
                 name,
                 breed,
                 age,
+                comments,
                 owner_name: ownerName,
                 img_url: imgUrl,
                 walk_time: walkTime,
                 walk: walkDate,
+                phone_number: phoneNumber,
             }),
         })
-            .then((r) => {
-                history.push('/dogs')
-            })
+            .then((r) => {history.push('/dogs')})
     }
-
-
 
 
 
@@ -78,6 +78,16 @@ function EditDog() {
 
                             <Form.Group as={Col} controlId="formGridPassword">
                                 <Form.Control className="form-input shadow rounded-pill w-75" value={walkTime} type="time" placeholder="Select time" onChange={(e) => setWalkTime(e.target.value)} />
+                            </Form.Group>
+                        </Row>
+
+                        <Row className="mb-3">
+                            <Form.Group as={Col} controlId="formGridEmail">
+                                <Form.Control className="form-input shadow rounded-pill w-75" value={phoneNumber} type="text" placeholder="Contact number" onChange={(e) => setPhoneNumber(e.target.value)} />
+                            </Form.Group>
+
+                            <Form.Group as={Col} controlId="formGridPassword">
+                                <Form.Control className="form-input shadow rounded-pill w-75" value={comments} type="text" placeholder="Comments..." onChange={(e) => setComments(e.target.value)} />
                             </Form.Group>
                         </Row>
 

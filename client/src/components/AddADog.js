@@ -13,6 +13,8 @@ function AddADog() {
     const [imgUrl, setImgUrl] = useState('')
     const [walkTime, setWalkTime] = useState('')
     const [walkDate, setWalkDate] = useState('')
+    const [phoneNumber, setPhoneNumber] = useState('')
+    const [comments, setComments] = useState('')
     const [errors, setErrors] = useState('')
     const history = useHistory()
 
@@ -28,22 +30,24 @@ function AddADog() {
                 name,
                 breed,
                 age,
+                comments,
                 owner_name: ownerName,
                 img_url: imgUrl,
                 walk_time: walkTime,
                 walk_date: walkDate,
+                phone_number: phoneNumber,
             }),
         }).then((r) => {
             if (r.ok) {
                 history.push('/dogs')
             } else {
-                r.json().then((err) => setErrors(err.errors))
+                r.json().then((err) => console.log(err.errors))
             }
         })
     }
 
     const renderErrors = () => {
-        return errors.map((err) => {return <Alert className="add-dog-alert w-50 text-center fs-6 fw-lighter p-1" variant="danger"><FontAwesomeIcon icon={faExclamationCircle} /> {err}</Alert>})
+        return errors.map((err) => {return <Alert className="add-dog-alert mt-2 w-50 text-center fs-6 fw-lighter p-1" variant="danger"><FontAwesomeIcon icon={faExclamationCircle} /> {err}</Alert>})
     }
 
 
@@ -74,7 +78,7 @@ function AddADog() {
                             </Form.Group>
 
                             <Form.Group as={Col} controlId="formGridPassword">
-                                <Form.Control className="form-input shadow rounded-pill w-75" value={age} type="text" placeholder="Enter age" onChange={(e) => setAge(e.target.value)} />
+                                <Form.Control className="form-input shadow rounded-pill w-75" value={age} type="number" placeholder="Enter age (number of years)" onChange={(e) => setAge(e.target.value)} />
                             </Form.Group>
                         </Row>
 
@@ -85,6 +89,16 @@ function AddADog() {
 
                             <Form.Group as={Col} controlId="formGridPassword">
                                 <Form.Control className="form-input shadow rounded-pill w-75" value={walkTime} type="time" placeholder="Select time" onChange={(e) => setWalkTime(e.target.value)} />
+                            </Form.Group>
+                        </Row>
+
+                        <Row className="mb-3">
+                            <Form.Group as={Col} controlId="formGridEmail">
+                                <Form.Control className="form-input shadow rounded-pill w-75" value={phoneNumber} type="text" placeholder="Contact number" onChange={(e) => setPhoneNumber(e.target.value)} />
+                            </Form.Group>
+
+                            <Form.Group as={Col} controlId="formGridPassword">
+                                <Form.Control className="form-input shadow rounded-pill w-75" value={comments} type="text" placeholder="Comments..." onChange={(e) => setComments(e.target.value)} />
                             </Form.Group>
                         </Row>
 
