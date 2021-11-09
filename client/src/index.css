@@ -51,6 +51,10 @@ code {
   height: 200px;
 }
 
+.dog-info {
+  text-align: left;
+}
+
 .dog-name {
   font-size: 24px;
 }
