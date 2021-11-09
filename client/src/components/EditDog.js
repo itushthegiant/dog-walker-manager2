@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
-import { Form, Row, Button, Col, Container, Card } from 'react-bootstrap'
+import { Form, Row, Button, Col, Container, Card, Alert } from 'react-bootstrap'
 import { useHistory, useParams } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -14,6 +16,7 @@ function EditDog() {
     const [walkDate, setWalkDate] = useState('')
     const [phoneNumber, setPhoneNumber] = useState('')
     const [comments, setComments] = useState('')
+    const [errors, setErrors] = useState('')
     const { id } = useParams()
     const history = useHistory()
 
@@ -36,8 +39,18 @@ function EditDog() {
                 walk: walkDate,
                 phone_number: phoneNumber,
             }),
+        }).then((r) => {
+            if (r.ok) {
+                history.push('/dogs')
+            } else {
+                r.json().then((err) => setErrors(err.errors))
+            }
         })
-            .then((r) => {history.push('/dogs')})
+    }
+
+
+    const renderErrors = () => {
+        return errors.map((err) => { return <Alert className="add-dog-alert mt-2 w-50 text-center fs-6 fw-lighter p-1" variant="danger"><FontAwesomeIcon icon={faExclamationCircle} /> {err}</Alert> })
     }
 
 
@@ -50,6 +63,7 @@ function EditDog() {
                     <h1 className="text-center"><i className="far">Edit walk</i></h1>
                 </div>
                 <Card className="mt-4 add-dog-form" style={{ width: '80rem' }}>
+                   
                     <Form className="text-center" onSubmit={handleSubmit}>
                         <Row className="mb-3">
                             <Form.Group as={Col} controlId="formGridEmail">
@@ -94,6 +108,7 @@ function EditDog() {
                         <Form.Group className="mb-3" controlId="formGridAddress1">
                             <Form.Control className="img-form-input shadow rounded-pill w-75" value={imgUrl} type="text" placeholder="Dogs picture" onChange={(e) => setImgUrl(e.target.value)} />
                         </Form.Group>
+                        {errors.length > 0 ? renderErrors() : null}
 
                         <Button className="shadow mb-3" variant="primary" type="submit">
                             Edit

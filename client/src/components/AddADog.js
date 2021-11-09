@@ -41,7 +41,7 @@ function AddADog() {
             if (r.ok) {
                 history.push('/dogs')
             } else {
-                r.json().then((err) => console.log(err.errors))
+                r.json().then((err) => setErrors(err.errors))
             }
         })
     }
@@ -60,7 +60,7 @@ function AddADog() {
                     <h1 className="text-center"><i className="far">Add a Walk</i></h1>
                 </div>
                 <Card className="mt-4 add-dog-form" style={{ width: '80rem' }}>
-                    {errors.length > 0 ? renderErrors() : null}
+                    
                     <Form className="text-center" onSubmit={handleSubmit}>
                         <Row className="mb-3">
                             <Form.Group as={Col} controlId="formGridEmail">
@@ -105,6 +105,7 @@ function AddADog() {
                         <Form.Group className="mb-3" controlId="formGridAddress1">
                             <Form.Control className="img-form-input shadow rounded-pill w-75" value={imgUrl} type="text" placeholder="Dogs picture" onChange={(e) => setImgUrl(e.target.value)} />
                         </Form.Group>
+                        {errors.length > 0 ? renderErrors() : null}
 
                         <Button className="shadow mb-3" variant="primary" type="submit">
                             Fetch!
